@@ -93,6 +93,7 @@ export const Controls = () => {
         label="Рост цены (множитель)"
         step={0.01}
         maxValue={5}
+        fillOffset={0}
         minValue={-5}
         formatOptions={{ signDisplay: "always" }}
         defaultValue={0.4}
