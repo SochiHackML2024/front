@@ -7,7 +7,6 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -21,12 +20,33 @@
   }
 }
 
+html {
+  scroll-behavior: smooth !important;
+}
+
 body {
   margin: 0;
   padding: 0;
 }
 
+#root {
+  padding: 0;
+  margin: 0;
+}
+
 a {
   text-decoration: none;
   color: inherit;
+}
+
+
+.contain {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh; /* Высота контейнера равна высоте экрана */
+}
+
+.page {
+  scroll-snap-align: start;
+  height: 100vh; /* Высота каждой "страницы" равна высоте экрана */
 }

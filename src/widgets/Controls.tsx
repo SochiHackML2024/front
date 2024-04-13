@@ -1,13 +1,15 @@
+import { Slider } from "@nextui-org/react";
 import { useCallback, useMemo, useState } from "react";
 import { useDropzone } from "react-dropzone";
 
-export const Sidebar = () => {
+export const Controls = () => {
   const [filename, setFilename] = useState<string>("");
   const [fileError, setFileError] = useState<string>("");
   const onDrop = useCallback(async (acceptedFiles: File[]) => {
     const file = acceptedFiles[0];
     if (!file) return;
-    if (file.type !== "text/csv") return setFileError("Загрузите .csv файл");
+    if (!file.name.endsWith(".xlsx"))
+      return setFileError("Загрузите .xlsx файл");
     setFileError("");
 
     setFilename(file.name);
@@ -58,11 +60,44 @@ export const Sidebar = () => {
             {filename === ""
               ? isFileError
                 ? fileError
-                : "Переместите .csv файл сюда или кликните на текст"
+                : "Переместите .xlsx файл сюда или кликните на текст"
               : filename}
           </p>
         )}
       </div>
+      <Slider
+        label="Индекс цены (множитель)"
+        showTooltip={true}
+        step={0.1}
+        formatOptions={{ style: "percent" }}
+        maxValue={1}
+        minValue={0}
+        marks={[
+          {
+            value: 0.2,
+            label: "20%",
+          },
+          {
+            value: 0.5,
+            label: "50%",
+          },
+          {
+            value: 0.8,
+            label: "80%",
+          },
+        ]}
+        defaultValue={0.2}
+        className="max-w-md"
+      />
+      <Slider
+        label="Рост цены (множитель)"
+        step={0.01}
+        maxValue={5}
+        minValue={-5}
+        formatOptions={{ signDisplay: "always" }}
+        defaultValue={0.4}
+        className="max-w-md"
+      />
     </aside>
   );
 };
