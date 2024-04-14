@@ -17,10 +17,10 @@ export const Controls = () => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
   const isFileError = useMemo(() => fileError !== "", [fileError]);
   return (
-    <aside className={"flex flex-col gap-4 col-span-1"}>
+    <aside className={"flex flex-col gap-4 col-span-1 justify-center sm:justify-start items-center sm:items-start"}>
       <div
         {...getRootProps()}
-        className={`h-20 w-full flex items-center justify-center text-center align-middle border-2 ${
+        className={`h-20 w-[80%] sm:w-full flex items-center justify-center text-center align-middle border-2 ${
           isFileError ? "border-red-300" : "border-gray-300"
         } rounded-xl border-dashed`}
       >
@@ -87,7 +87,7 @@ export const Controls = () => {
           },
         ]}
         defaultValue={0.2}
-        className="max-w-md"
+        className="sm:max-w-md w-[80%]"
       />
       <Slider
         label="Рост цены (множитель)"
@@ -97,7 +97,7 @@ export const Controls = () => {
         minValue={-5}
         formatOptions={{ signDisplay: "always" }}
         defaultValue={0.4}
-        className="max-w-md"
+        className="sm:max-w-md w-[80%]"
       />
     </aside>
   );
