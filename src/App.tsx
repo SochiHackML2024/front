@@ -14,7 +14,7 @@ function App() {
       <div className={"snap-center h-screen relative"}>
         <div className={"container mx-auto"}>
           <Header />
-          <div className={"container relative"}>
+          <div className={"container relative flex align-center justify-center"}>
             <Sphere1
               className={
                 "absolute drop-shadow-md -right-[400px] top-[100px] -z-10"
@@ -29,6 +29,14 @@ function App() {
               width={500}
               height={600}
             />
+          </div>
+        </div>
+        <div className={"absolute flex items-center justify-center rounded-2 w-full top-[20%] sm:top-[30%] p-2"}>
+          <div className={'bg-amber-100 align-center w-[80%] sm:w-[60%] sm:text-2xl text-xl rounded-2 p-10'}>
+            ИНСТРУКЦИЯ
+            <div>
+              Для работы с эконометрической моделью необходимо загрузить файл. После обработки будут выведены данные на графике. Непрерывная линия показывает Ваши данные, а прерывистая линия – прогноз прибыли на ближайшие 28 недель. Ниже находятся ползунки, с помощью которых можно изменить основные факторы с целью увеличения прибыли.
+            </div>
           </div>
         </div>
         <div className={"absolute bottom-0 left-1/2"}>
